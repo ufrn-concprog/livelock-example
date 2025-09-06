@@ -12,6 +12,12 @@ An educational repository demonstrating livelocks in Java multithreading. The le
 
 This project is part of the **Concurrent Programming** module at the [Federal University of Rio Grande do Norte (UFRN)](https://www.ufrn.br), Natal, Brazil.
 
+## 📃 Description
+
+This example simulates transfers from one bank account to another. In this example, there is a transfer from *Account-A* to *Account-B* and, concurrently, another transfer from *Account-B* to *Account-A*. Each transaction is performed by a thread. Before doing each operation, the threads attempt to acquire locks over the bank accounts they are operating on.
+
+Remember that a transfer is an atomic transaction consisting of two operations: a withdrawal of an amount from the origin account and the deposit of this amount into the target account. A transfer transaction is considered successful if both withdrawal and deposit operations are completed. Otherwise, the money initially reserved is returned to the original account. In this example (purposely forged for pedagogical objectives), if it is not possible to acquire the lock to deposit into the target account, the lock acquired on the origin account is released, and the entire transaction is restarted.
+
 ---
 
 ## 📂 Repository Structure
@@ -43,12 +49,8 @@ This will place compiled `.class` files inside the `out/` directory.
 
 ### ▶️ Running
 
-This example simulates transfers from one bank account to another. In this example, there is a transfer from *Account-A* to *Account-B* and, concurrently, another transfer from *Account-B* to *Account-A*. Each transaction is performed by a thread. Before doing each operation, the threads attempt to acquire locks over the bank accounts they are operating on.
-
-Remember that a transfer is an atomic transaction consisting of two operations: a withdrawal of an amount from the origin account and the deposit of this amount into the target account. A transfer transaction is considered successful if both withdrawal and deposit operations are completed. Otherwise, the money initially reserved is returned to the original account. In this example (purposely forged for pedagogical objectives), if it is not possible to acquire the lock to deposit into the target account, the lock acquired on the origin account is released, and the entire transaction is restarted.
-
 ```bash
-java -cp out DeadlockExample
+java -cp out LivelockExample
 ```
 
 Expected output:
