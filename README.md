@@ -18,7 +18,6 @@ This project is part of the **Concurrent Programming** module at the [Federal Un
 
 ```
 .
-├── doc/                   # Documentation generated with Javadoc
 ├── src/                   # Source code
 │   ├── BankAccount.java       # Represents a bank account as a shared resource to be locked by threads
 │   ├── LivelockExample.java   # Demonstrates a livelock between two threads
@@ -67,17 +66,6 @@ Expected output:
 ```
 
 This represents a livelock, as the operations attempt to run indefinitely, and the program does not terminate.
-
----
-
-## 📖 Documentation
-
-Javadoc is available in the [`doc/`](doc) directory. Open `doc/index.html` in your browser:
-
-```bash
-open doc/index.html    # macOS
-xdg-open doc/index.html # Linux
-```
 
 ---
 
